@@ -11,6 +11,17 @@ const math = (number1,number2,number3,number4) => {
     return a;
 };
 
-console.log(math(2,3,4,5));
+const abc = () => {};
+const aaa = () => {};
+const bbb = () => {};
+const ccc = () => {};
 
-export default math;
+// console.log(math(2,3,4,5));
+
+const main = {
+    abc,aaa,bbb,ccc
+}
+
+export default main;
+
+export {abc,aaa,bbb,ccc,math};

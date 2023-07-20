@@ -11,6 +11,11 @@ app.get('/next', (req,res)=>{
     res.send('Hello Bhathiya...!!')
 });
 
+app.post('/emp', ()=>{
+    console.log(req.body);
+    res.send(req.body);
+});
+
 mongoose.connect('mongodb+srv://admin:988470864vV@cluster1.h8edhfd.mongodb.net/Employees?retryWrites=true&w=majority')
 .then(() => {
     console.log('Connected to the mongDB.');

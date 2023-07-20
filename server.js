@@ -6,6 +6,25 @@ const port = 3000;
 
 app.use(express.json());
 
+app.get('/emp/get', async(req,res) => {
+    try {
+        const employees = await Employee.find({});
+        res.status(200).json(employees)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+});
+
+app.get('/emp/gets/:id', async(req,res) => {
+    try {
+        const {id} = req.params;
+        const employee = await Employee.findById(id);
+        res.status(200).json(employee)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+});
+
 app.post('/emp', async(req,res) => {
     try {
         const employee = await Employee.create(req.body)

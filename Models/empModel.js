@@ -10,7 +10,8 @@ const empSchema = mongoose.Schema(
             type: Number,
             required: true,
         }
-    },{
+    },
+    {
         timestamps: true,
     }
 );

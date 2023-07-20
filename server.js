@@ -5,6 +5,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+// app.use(express.urlencoded({extended: false}));
 
 app.get('/emp/get', async(req,res) => {
     try {
@@ -31,6 +32,34 @@ app.post('/emp', async(req,res) => {
         res.status(200).json(employee)
     } catch (error) {
         console.log(error.message)
+        res.status(500).json({message: error.message})
+    }
+});
+
+app.put('/emp/put/:id', async(req,res) => {
+    try {
+        const {id} = req.params;
+        const employee = await Employee.findByIdAndUpdate(id, req.body)
+        if(!employee){
+            return res.status(404).json(`AnyId can't find ${id}`)
+        }
+        const updatedEmployee = await Employee.findById(id);
+        res.status(200).json(updatedEmployee)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+});
+
+app.delete('/emp/delete/:id', async(req,res) => {
+    try {
+        const {id} = req.params;
+        const employee = await Employee.findByIdAndDelete(id)
+        if(!employee){
+            return res.status(404).json(`Cannot find any employee with id ${id}`)
+        }
+        
+        res.status(200).json(employee)
+    } catch (error) {
         res.status(500).json({message: error.message})
     }
 })

@@ -3,15 +3,10 @@ const app = express();
 const port = 3000;
 
 app.get('/', (req,res) => {
-    res.send('Hello Bhathiya');
+    res.send('Hello Prasadi...!');
 });
 
-app.get('/blog', (req,res) => {
-    res.send('Hello Prasai');
-})
-
-app.listen(port, () => {
-    console.log(`Node app is running on port ${port}`);
+app.listen(port, ()=>{
+    console.log(`Node app is running on port ${port}`)
 });
 
-// app.listen(3000);

@@ -2,9 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Employee = require('./Models/empModel');
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use(express.json());
+
+// app.get('/api', (req,res) =>{
+//     res.json({"Users": ["userone","usertwo","userthree"]});
+// })
 
 app.get('/emp', async(req,res) => {
     try {

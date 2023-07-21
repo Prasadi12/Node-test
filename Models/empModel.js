@@ -1,4 +1,4 @@
-const express = require('express')
+const mongoose = require('mongoose');
 
 const empSchema = mongoose.Schema(
     {
